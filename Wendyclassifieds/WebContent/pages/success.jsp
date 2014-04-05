@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>Welcome <bean:write name="LoginForm" property="username"/>!</h1>
+<html:form action="/allposts">
+<html:hidden name="ViewPost" property="uidTargetAll" value="true"/>
+<html:submit value="See all posts" />
+</html:form>
 <html:form action="/posts">
 <html:submit value="See my posts" />
 </html:form>

@@ -10,7 +10,7 @@ public class ViewPost extends ActionForm {
 	 */
 	private static final long serialVersionUID = -6382672640336368062L;
 	private ArrayList<Post> posts;
-	private int uid;
+	private  boolean uidTargetAll;
 
 	public ArrayList<Post> getPosts() {
 		return posts;
@@ -20,12 +20,13 @@ public class ViewPost extends ActionForm {
 		this.posts = posts;
 	}
 
-	public int getUid() {
-		return uid;
+	public boolean isUidTargetAll() {
+		return uidTargetAll;
 	}
 
-	public void setUid(int uid) {
-		this.uid = uid;
+	public void setUidTargetAll(boolean uidTargetAll) {
+		this.uidTargetAll = uidTargetAll;
 	}
+
 
 }

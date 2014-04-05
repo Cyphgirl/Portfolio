@@ -4,7 +4,7 @@
 <head>
 </head>
 <body>
-<html:link page="/home.do">Test action</html:link>
+<html:link page="/pages/NewMember.jsp">New Member</html:link>
 <br/>
 <html:link page="/pages/Login.jsp">Login</html:link>
 </body>

@@ -10,12 +10,18 @@
 		<form-bean name="LoginForm" type="yay.LoginForm" />
 		<form-bean name="ViewPost" type="yay.ViewPost" />
 		<form-bean name="CreatePost" type="yay.CreatePostForm" />
+		<form-bean name="CreateMember" type="yay.NewMemForm"/>
 	</form-beans>
 
 	<action-mappings>
 		<action path="/home" type="yay.HomeAction" name="homeForm">
 			<forward name="success" path="/pages/View.jsp" />
 
+		</action>
+		<action path="/createmem" input="/pages/NewMember.jsp" name="CreateMember"
+			scope="session" type="yay.CreateMember">
+			<forward name="success" path="/pages/Login.jsp" />
+			<forward name="failure" path="/pages/index.jsp" />
 		</action>
 		<action path="/login" input="/pages/Login.jsp" name="LoginForm"
 			scope="session" type="yay.LoginAction">
@@ -24,6 +30,10 @@
 		</action>
 		<action path="/posts" input="/pages/success.jsp" name="ViewPost"
 			scope="session" type="yay.SeePosts">
+			<forward name="success" path="/pages/seeposts.jsp" />
+		</action>
+		<action path="/allposts" input="/pages/success.jsp" name="ViewPost"
+			scope="session" type="yay.SeePostsAll">
 			<forward name="success" path="/pages/seeposts.jsp" />
 		</action>
 		<action path="/post" input="/pages/success.jsp" name="CreatePost"

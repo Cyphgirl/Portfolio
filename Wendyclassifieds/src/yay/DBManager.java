@@ -115,4 +115,54 @@ public class DBManager {
 		}
 		return true;
 	}
+	
+	public LoginForm getLogin(int uid){
+		String sqltext="Select * from listing.logininfo where uid="+uid;
+		if(connection!=null){
+			try{
+				sql=connection.createStatement();
+				rs=sql.executeQuery(sqltext);
+				LoginForm l = new LoginForm();
+				l.setPassword(rs.getString("pswd"));
+				l.setUsername(rs.getString("username"));
+				l.setUid(uid);
+				return l;
+			}catch(SQLException e){
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return null;
+		
+	}
+	public int createMember(NewMemForm member){
+		String sqlt="Select max(iduser) + 1 as m from (select * from listing.user) as u";
+		int result =-1;
+		String sqltext="Insert into listing.user values((Select max(iduser) + 1 from (select * from listing.user) as u), ?, ?,?,?,?)";
+		if(connection!=null){
+			try{
+				sql=connection.createStatement();
+				rs = sql.executeQuery(sqlt);
+				rs.next();
+				result=rs.getInt("m");
+		ps = connection.prepareStatement(sqltext);
+		ps.setString(1, member.getName());
+		ps.setString(2, member.getEmail());
+		ps.setString(3, member.getLocation());
+		ps.setString(4, member.getTelno());
+		ps.setString(5, member.getBio());
+		ps.executeUpdate();
+		sqltext="Insert into listing.logininfo values((Select max(iduser) from listing.user), ?,?)";
+		ps = connection.prepareStatement(sqltext);
+		ps.setString(1, member.getPswd());
+		ps.setString(2, member.getUsername());
+		ps.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+			return -1;
+		}
+		
+	}
+		return result;
+	}
 }

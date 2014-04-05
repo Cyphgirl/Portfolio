@@ -2,20 +2,34 @@
 <!DOCTYPE struts-config PUBLIC 
 "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
 "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
- 
+
 <struts-config>
- 
+
 	<form-beans>
-	   <form-bean name="homeForm" 	type="yay.HomeForm"/>
+		<form-bean name="homeForm" type="yay.HomeForm" />
+		<form-bean name="LoginForm" type="yay.LoginForm" />
+		<form-bean name="ViewPost" type="yay.ViewPost" />
+		<form-bean name="CreatePost" type="yay.CreatePostForm" />
 	</form-beans>
- 
+
 	<action-mappings>
-	   <action path="/home"
-		type="yay.HomeAction"
-		name="homeForm">
-		<forward name="success" path="/pages/View.jsp"/>
- 
-	   </action>
+		<action path="/home" type="yay.HomeAction" name="homeForm">
+			<forward name="success" path="/pages/View.jsp" />
+
+		</action>
+		<action path="/login" input="/pages/Login.jsp" name="LoginForm"
+			scope="session" type="yay.LoginAction">
+			<forward name="success" path="/pages/success.jsp" />
+			<forward name="failure" path="/pages/failure.jsp" />
+		</action>
+		<action path="/posts" input="/pages/success.jsp" name="ViewPost"
+			scope="session" type="yay.SeePosts">
+			<forward name="success" path="/pages/seeposts.jsp" />
+		</action>
+		<action path="/post" input="/pages/success.jsp" name="CreatePost"
+			scope="session" type="yay.CreatePost">
+			<forward name="success" path="/pages/success.jsp" />
+		</action>
 	</action-mappings>
- 
+	<message-resources parameter="MessageResources" />
 </struts-config>

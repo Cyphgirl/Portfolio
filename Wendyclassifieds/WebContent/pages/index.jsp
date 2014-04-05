@@ -1,10 +1,9 @@
 
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
 <html>
 <head>
 </head>
 <body>
-<h1><bean:write name="homeForm" property="message" />
-</h1>
+<html:link page="/home.do">Test action</html:link>
 </body>
 </html>

@@ -6,13 +6,13 @@
 <struts-config>
  
 	<form-beans>
-	   <form-bean name="home" 	type="yay.HomeForm"/>
+	   <form-bean name="homeForm" 	type="yay.HomeForm"/>
 	</form-beans>
  
 	<action-mappings>
-	   <action path="/Welcome"
+	   <action path="/home"
 		type="yay.HomeAction"
-		name="homeAction">
+		name="homeForm">
 		<forward name="success" path="/pages/View.jsp"/>
  
 	   </action>

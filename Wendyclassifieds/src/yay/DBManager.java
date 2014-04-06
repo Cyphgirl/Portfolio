@@ -116,17 +116,20 @@ public class DBManager {
 		return true;
 	}
 	
-	public LoginForm getLogin(int uid){
-		String sqltext="Select * from listing.logininfo where uid="+uid;
+	public NewMemForm getMember(int uid){
+		String sqltext="Select * from listing.user where idUser="+uid;
 		if(connection!=null){
 			try{
 				sql=connection.createStatement();
 				rs=sql.executeQuery(sqltext);
-				LoginForm l = new LoginForm();
-				l.setPassword(rs.getString("pswd"));
-				l.setUsername(rs.getString("username"));
-				l.setUid(uid);
-				return l;
+				rs.next();
+				NewMemForm nmf = new NewMemForm();
+				nmf.setName(rs.getString("name"));
+				nmf.setEmail(rs.getString("email"));
+				nmf.setLocation(rs.getString("location"));
+				nmf.setTelno(rs.getString("telno"));
+				nmf.setBio(rs.getString("bio"));
+				return nmf;
 			}catch(SQLException e){
 				e.printStackTrace();
 				return null;
@@ -165,4 +168,5 @@ public class DBManager {
 	}
 		return result;
 	}
+
 }

@@ -15,6 +15,12 @@ public class LoginForm extends ActionForm {
 	private String username;
 	private String password;
 	private int uid;
+	private String name;
+	private String email;
+	private String location;
+	private String telno;
+	private String bio;
+
 
 	public String getUsername() {
 		return username;
@@ -50,5 +56,45 @@ public class LoginForm extends ActionForm {
 
 	public void setUid(int uid) {
 		this.uid = uid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getTelno() {
+		return telno;
+	}
+
+	public void setTelno(String telno) {
+		this.telno = telno;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 }

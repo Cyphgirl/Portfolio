@@ -3,6 +3,10 @@ package yay;
 import org.apache.struts.action.ActionForm;
 
 public class NewMemForm extends ActionForm {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6714709733068337639L;
 	private String username;
 	private String pswd;
 	private String pswdconf;

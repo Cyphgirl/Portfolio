@@ -7,11 +7,13 @@ public class Post {
  private String location;
  private String title;
  private String body;
-	public Post(Date date, String location, String title, String body){
+ private String name;
+	public Post(Date date, String location, String title, String body, String name){
 	 this.setDate(date);
 	 this.setLocation(location);
 	 this.setTitle(title);
 	 this.setBody(body);
+	 this.setName(name);
  
  }
 	public Post( String location, String title, String body){
@@ -52,5 +54,11 @@ public class Post {
 		result += body + "\n";
 		return result;
 		
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

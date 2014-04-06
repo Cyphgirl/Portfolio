@@ -67,14 +67,14 @@ public class DBManager {
 		}
 	}
 	public ArrayList<Post> getPostsbyUid(int uid){
-	String sqltext = "select datepost, title, body, location from listing.posting where postedby=" + uid;
+	String sqltext = "select datepost, title, body, l.location, name from listing.posting as l, listing.user where postedby=" + uid + " and iduser = postedby order by datepost Desc";
 	ArrayList<Post> result = new ArrayList<Post>();
 	if(connection != null){
 		try{
 			sql = connection.createStatement();
 			rs = sql.executeQuery(sqltext);
 			while(rs.next()){
-				result.add(new Post(rs.getDate("datepost"), rs.getString("location"), rs.getString("title"), rs.getString("body")));
+				result.add(new Post(rs.getDate("datepost"), rs.getString("location"), rs.getString("title"), rs.getString("body"), rs.getString("name")));
 			}
 			
 		}catch(SQLException e){
@@ -84,14 +84,14 @@ public class DBManager {
 	return result;
 	}
 	public ArrayList<Post> getPosts(){
-	String sqltext = "select datepost, title, body, location from listing.posting";
+	String sqltext = "select datepost, title, body, l.location, name from listing.posting as l, listing.user where iduser = postedby order by datepost DESC";
 	ArrayList<Post> result = new ArrayList<Post>();
 	if(connection != null){
 		try{
 			sql = connection.createStatement();
 			rs = sql.executeQuery(sqltext);
 			while(rs.next()){
-				result.add(new Post(rs.getDate("datepost"), rs.getString("location"), rs.getString("title"), rs.getString("body")));
+				result.add(new Post(rs.getDate("datepost"), rs.getString("location"), rs.getString("title"), rs.getString("body"), rs.getString("name")));
 			}
 			
 		}catch(SQLException e){

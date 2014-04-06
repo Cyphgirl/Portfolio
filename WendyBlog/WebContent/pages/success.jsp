@@ -7,7 +7,7 @@
 <title>Success</title>
 </head>
 <body>
-<h1>Welcome<bean:write name="LoginForm" property="name"/>!</h1>
+<h1>Welcome <bean:write name="LoginForm" property="name"/>!</h1>
 
 <html:form action="/allposts">
 <html:hidden name="ViewPost" property="uidTargetAll" value="true"/>

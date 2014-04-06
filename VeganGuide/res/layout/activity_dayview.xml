@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Dayview" >
+
+    <TextView
+        android:id="@+id/daylist"
+        android:layout_width="match_parent"
+        android:layout_height="269dp"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/newfood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Food" />
+
+    <Button
+        android:id="@+id/exist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Existing" 
+        />
+
+    <Button
+        android:id="@+id/newday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Day" />
+
+    <Button
+        android:id="@+id/ChooseDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Different Day" />
+
+</LinearLayout>

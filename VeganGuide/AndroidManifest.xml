@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.veganguide"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:name="com.example.veganguide.App"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.veganguide.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.veganguide.AddFood"
+            android:label="@string/title_activity_add_food"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.veganguide.Dayview"
+            android:label="@string/title_activity_dayview"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.veganguide.Listfoods"
+            android:label="@string/title_activity_listfoods"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.veganguide.Set"
+            android:label="@string/title_activity_set"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.veganguide.DayList"
+            android:label="@string/title_activity_day_list" >
+        </activity>
+    </application>
+
+</manifest>
